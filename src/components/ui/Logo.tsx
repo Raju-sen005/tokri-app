@@ -1,6 +1,6 @@
 type Tone = 'default' | 'light'
 
-export function LogoMark({ className = 'size-9', tone = 'default' }: { className?: string; tone?: Tone }) {
+export function LogoMark({ className = 'size-40', tone = 'default' }: { className?: string; tone?: Tone }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="202" height="380" viewBox="0 0 1600 520" className={className} data-tone={tone}>
 

@@ -4,7 +4,7 @@ import { brand, contact, serviceLocations, socialLinks } from '../../config/site
 import { getWhatsAppUrl, joinHinglish } from '../../lib/appLinks'
 import { Container } from '../ui/Container'
 import { DownloadButton } from '../ui/DownloadButton'
-// import { Logo } from '../ui/Logo'
+import Logo from '../../../assest/tokri-app-icon-1024.png'
 import { SocialIcon } from '../ui/SocialIcon'
 
 const currentYear = new Date().getFullYear()
@@ -21,7 +21,7 @@ export function Footer() {
     <footer className="bg-forest text-white">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-12 lg:py-16">
         <div className="sm:col-span-2 lg:col-span-1">
-          <img src="../../../assest/tokri-app-icon-1024.png" alt={`${brand.name} logo`} className="h-18 w-auto" />
+          <img src={Logo} alt={`${brand.name} logo`} className="h-18 w-auto" />
           <p className="mt-4 font-bold text-mango">{brand.tagline}</p>
           <p className="mt-3 max-w-sm text-white/80">
             {brand.name} aapke shehar ki local online dukaan hai. Groceries, fresh vegetables, dairy, snacks aur daily
