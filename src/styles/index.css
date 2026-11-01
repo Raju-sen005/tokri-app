@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/*
+  Tokri design tokens: the single source of truth for the theme.
+  Components must use these through Tailwind utilities (bg-mango, text-forest, rounded-card, ...)
+  and never hardcode colors.
+*/
+@theme static {
+  --font-sans: "Nunito Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand */
+  --color-mango: #ffd43b;
+  --color-deep-mango: #FFC127;
+
+  --color-forest: #176b3a;
+  --color-warm-orange: #ff9f1c;
+  --color-cream: #fff8e7;
+  --color-white: #ffffff;
+
+  /* Text and lines */
+  --color-ink: #252525;
+  --color-ink-soft: #6b6b6b;
+  --color-ink-muted: #929292;
+  --color-line: #eae5d9;
+
+  /* Status */
+  --color-success: #238b45;
+  --color-error: #d93025;
+
+  /* Derived from brand colors (no new hues) */
+  --color-forest-hover: color-mix(in srgb, var(--color-forest) 86%, black);
+  --color-forest-tint: color-mix(in srgb, var(--color-forest) 10%, white);
+  --color-mango-soft: color-mix(in srgb, var(--color-mango) 35%, white);
+  --color-mango-deep: color-mix(in srgb, var(--color-mango) 88%, var(--color-warm-orange));
+
+  /* Product illustration palette (artwork only, not UI) */
+  --color-art-tomato: #e8452e;
+  --color-art-leaf: #2e9d4f;
+  --color-art-leaf-dark: #1f7a3b;
+  --color-art-carrot: #f4731f;
+  --color-art-blue: #3f7fb8;
+  --color-art-bread: #d99a4e;
+  --color-art-bread-dark: #b97a31;
+  --color-art-wicker: #c98a3a;
+  --color-art-wicker-dark: #9f6624;
+  --color-art-wicker-light: #e3ad5c;
+  --color-art-pack: #e8452e;
+
+  /* Store badge (third party brand colors) */
+  --color-badge: #000000;
+  --color-gplay-blue: #00d7fe;
+  --color-gplay-green: #00f076;
+  --color-gplay-yellow: #ffce00;
+  --color-gplay-red: #ff3a44;
+
+  /* Shape and depth */
+  --radius-card-sm: 12px;
+  --radius-card: 16px;
+  --radius-card-lg: 18px;
+  --shadow-card: 0 1px 2px rgb(37 37 37 / 0.05), 0 6px 20px -6px rgb(37 37 37 / 0.1);
+  --shadow-lift: 0 2px 4px rgb(37 37 37 / 0.06), 0 14px 32px -10px rgb(37 37 37 / 0.2);
+  --shadow-phone: 0 30px 60px -20px rgb(23 107 58 / 0.45), 0 12px 24px -12px rgb(37 37 37 / 0.35);
+
+  /* Responsive type scale */
+  --text-display: clamp(2.125rem, 1.45rem + 3.4vw, 4rem);
+  --text-display--line-height: 1.06;
+  --text-display--letter-spacing: -0.02em;
+  --text-title: clamp(1.75rem, 1.3rem + 2vw, 2.75rem);
+  --text-title--line-height: 1.12;
+  --text-title--letter-spacing: -0.015em;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 8s ease-in-out infinite reverse;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(var(--tilt, 0deg)); }
+    50% { transform: translateY(-10px) rotate(var(--tilt, 0deg)); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-forest);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
