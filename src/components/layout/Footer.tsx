@@ -4,7 +4,7 @@ import { brand, contact, serviceLocations, socialLinks } from '../../config/site
 import { getWhatsAppUrl, joinHinglish } from '../../lib/appLinks'
 import { Container } from '../ui/Container'
 import { DownloadButton } from '../ui/DownloadButton'
-import { Logo } from '../ui/Logo'
+// import { Logo } from '../ui/Logo'
 import { SocialIcon } from '../ui/SocialIcon'
 
 const currentYear = new Date().getFullYear()
